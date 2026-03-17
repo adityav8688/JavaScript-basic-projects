@@ -1,0 +1,9 @@
+.card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.list{
+    background-color: aquamarine;
+    list-style: none;
+}
