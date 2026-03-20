@@ -1,46 +1,69 @@
-body{
+body {
     font-family: "Barlow Semi Condensed", sans-serif;
-    background-color: rgb(194, 194, 194);
+    background-color: rgb(255, 234, 234);
 }
-header{
+
+header {
     display: flex;
     justify-content: center;
 }
-.card{
+
+.card {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    >.enter-task {
+        display: flex;
+
+        #taskInput {
+            margin: 0 1rem 0 0;
+            border: none;
+            min-height: 30px;
+            min-width: 15rem;
+
+            &:focus{
+                background-color: rgb(197, 238, 255);
+            }
+
+        }
+        #addBtn{
+            display: flex;
+            align-items: center;
+            font-weight: bolder;
+            border: none;
+            background-color: rgb(255, 192, 192);
+            &:hover{
+                background-color: rgb(180, 108, 108);
+            }
+        }
+    }
 }
-.tasks{
-    display: flex;
-    justify-content: center;
-}
-#taskList{
+
+#taskList {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     list-style: none;
     padding: 0.5rem;
+
+    .list {
+        padding: 0.5rem;
+        display: flex;
+
+        .editText {
+            min-width: 15.25rem;
+            border: none;
+        }
+    }
 }
-.list{
-    padding: 0.75rem;
-    min-width: 20rem;
-    max-width: 25rem;
-    display: grid;
-    grid-template-columns: repeat(1,1fr);
-}
-.taskText{
+
+.taskText {
     background-color: aquamarine;
     padding: 0.25rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 15rem;
-}
-.delBtn{
-    margin-left: 1rem;
-    background-color: none;
-    grid-column: 2;
+    min-width: 15rem;
 }

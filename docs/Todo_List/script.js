@@ -25,10 +25,35 @@ button.addEventListener("click", function () {
     span.classList.add("taskText");
     li.appendChild(span);
 
+    let editBtn = document.createElement("button");
+    editBtn.innerHTML = `<span class="material-symbols-outlined">edit</span>`
+    editBtn.classList.add("editBtn");
+    li.appendChild(editBtn);
+
     let deleteBtn = document.createElement("button");
     deleteBtn.innerHTML = `<span class="material-symbols-outlined">delete</span>`;
     deleteBtn.classList.add("delBtn");
     li.appendChild(deleteBtn);
+
+    editBtn.addEventListener("click", function(){
+        if(editBtn.innerText === "edit"){
+            let inputField = document.createElement("input");
+            inputField.type = "text";
+            inputField.value = span.innerText;
+            inputField.classList.add("editText");
+
+            li.replaceChild(inputField, span);
+
+            editBtn.innerHTML = `<span class="material-symbols-outlined">save</span>`
+        }else{
+            let inputField = li.querySelector("input");
+            span.innerText = inputField.value;
+
+            li.replaceChild(span, inputField);
+
+            editBtn.innerHTML = `<span class="material-symbols-outlined">edit</span>`
+        }
+    });
 
     deleteBtn.addEventListener("click", function () {
         li.remove();
