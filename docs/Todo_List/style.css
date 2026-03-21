@@ -69,7 +69,8 @@ header {
             border: none;
             background-color: rgb(216, 243, 255);
             &:focus{
-                outline-color: rgb(176, 231, 255);
+                border-bottom: 3px solid rgb(144, 220, 253);
+                outline: none;
             }
         }
         button{
@@ -98,7 +99,8 @@ header {
     background-color: rgb(255, 121, 95);
     padding: 0.25rem;
     white-space: pre;
-    overflow: scroll;
+    overflow: auto;
+    scrollbar-width: none;
     text-overflow: ellipsis;
     min-width: 15rem;
     max-width: 15rem;
