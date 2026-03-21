@@ -97,10 +97,11 @@ header {
 .taskText {
     background-color: rgb(255, 121, 95);
     padding: 0.25rem;
-    white-space: nowrap;
-    overflow: hidden;
+    white-space: pre;
+    overflow: scroll;
     text-overflow: ellipsis;
     min-width: 15rem;
+    max-width: 15rem;
 }
 .material-symbols-outlined{
     font-variation-settings: 
