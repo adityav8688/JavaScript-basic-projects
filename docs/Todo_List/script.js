@@ -3,10 +3,10 @@ let button = document.getElementById("addBtn");
 let list = document.getElementById("taskList");
 
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+let reversedTasks = [...tasks].reverse();
 
-
-for (let task in tasks) {
-    console.log(tasks[task]);
+for (let task in reversedTasks) {
+    console.log(reversedTasks[task]);
 }
 
 input.addEventListener("keypress", function (e) {
@@ -17,14 +17,13 @@ input.addEventListener("keypress", function (e) {
 
 function renderTasks() {
     list.innerHTML="";
-    let task = tasks.length-1;
-    for (let i in tasks) {
+    reversedTasks.forEach(function(task,index){
 
         let li = document.createElement("li");
         li.classList.add("list");
 
         let span = document.createElement("span");
-        span.innerText = tasks[task];
+        span.innerText = reversedTasks[index];
         span.classList.add("taskText");
 
         let deleteBtn = document.createElement("button");
@@ -32,7 +31,9 @@ function renderTasks() {
         deleteBtn.classList.add("delBtn");
 
         deleteBtn.addEventListener("click", function () {
-            deleteTask(task);
+            console.log(index);
+            deleteTask(index);
+            console.log(index);
         });
 
         let editBtn = document.createElement("button");
@@ -45,7 +46,7 @@ function renderTasks() {
                 inputField.type = "text";
                 inputField.value = span.innerText;
                 inputField.classList.add("editText");
-
+                console.log(index);
                 li.replaceChild(inputField, span);
 
                 editBtn.innerHTML = `<span class="material-symbols-outlined">save</span>`;
@@ -53,6 +54,9 @@ function renderTasks() {
             } else {
                 let inputField = li.querySelector("input");
                 span.innerText = inputField.value;
+                reversedTasks[index] = inputField.value;
+                console.log(index);
+                localStorage.setItem("reversedTasks", JSON.stringify(reversedTasks));
 
                 li.replaceChild(span, inputField);
 
@@ -63,8 +67,7 @@ function renderTasks() {
         li.appendChild(editBtn);
         li.appendChild(deleteBtn);
         list.appendChild(li);
-        task--;
-    };
+    });
 };
 renderTasks();
 
@@ -75,8 +78,8 @@ button.addEventListener("click", function () {
     if (text === "") return;
 
     tasks.push(text);
-
     localStorage.setItem("tasks", JSON.stringify(tasks));
+    reversedTasks = [...tasks].reverse();
 
     renderTasks();
 
@@ -84,9 +87,13 @@ button.addEventListener("click", function () {
 
 });
 
-function deleteTask(task){
-    tasks.splice(task, 1);
+function deleteTask(index){
+    let taskIndex = reversedTasks.length - 1 - index;
 
+    reversedTasks.splice(index, 1);
+    localStorage.setItem("tasks", JSON.stringify(reversedTasks));
+
+    tasks.splice(taskIndex,1);
     localStorage.setItem("tasks", JSON.stringify(tasks));
 
     renderTasks();
