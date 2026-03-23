@@ -5,9 +5,9 @@ let list = document.getElementById("taskList");
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 let reversedTasks = [...tasks].reverse();
 
-for (let task in reversedTasks) {
+/*for (let task in reversedTasks) {
     console.log(reversedTasks[task]);
-}
+}*/
 
 input.addEventListener("keypress", function (e) {
     if (e.key === "Enter") {
@@ -16,8 +16,8 @@ input.addEventListener("keypress", function (e) {
 });
 
 function renderTasks() {
-    list.innerHTML="";
-    reversedTasks.forEach(function(task,index){
+    list.innerHTML = "";
+    reversedTasks.forEach(function (task, index) {
 
         let li = document.createElement("li");
         li.classList.add("list");
@@ -31,9 +31,7 @@ function renderTasks() {
         deleteBtn.classList.add("delBtn");
 
         deleteBtn.addEventListener("click", function () {
-            console.log(index);
             deleteTask(index);
-            console.log(index);
         });
 
         let editBtn = document.createElement("button");
@@ -43,10 +41,12 @@ function renderTasks() {
         editBtn.addEventListener("click", function () {
             if (editBtn.innerText === "edit") {
                 let inputField = document.createElement("input");
+
                 inputField.type = "text";
                 inputField.value = span.innerText;
+                inputField.id = "input-value-"+index; 
                 inputField.classList.add("editText");
-                console.log(index);
+
                 li.replaceChild(inputField, span);
 
                 editBtn.innerHTML = `<span class="material-symbols-outlined">save</span>`;
@@ -54,9 +54,9 @@ function renderTasks() {
             } else {
                 let inputField = li.querySelector("input");
                 span.innerText = inputField.value;
-                reversedTasks[index] = inputField.value;
-                console.log(index);
-                localStorage.setItem("reversedTasks", JSON.stringify(reversedTasks));
+                let taskIndex = tasks.length - 1 - index;
+                tasks[taskIndex] = inputField.value;
+                localStorage.setItem("tasks", JSON.stringify(tasks));
 
                 li.replaceChild(span, inputField);
 
@@ -82,19 +82,16 @@ button.addEventListener("click", function () {
     reversedTasks = [...tasks].reverse();
 
     renderTasks();
-
     input.value = "";
 
 });
 
-function deleteTask(index){
+function deleteTask(index) {
     let taskIndex = reversedTasks.length - 1 - index;
 
-    reversedTasks.splice(index, 1);
-    localStorage.setItem("tasks", JSON.stringify(reversedTasks));
-
-    tasks.splice(taskIndex,1);
+    tasks.splice(taskIndex, 1);
     localStorage.setItem("tasks", JSON.stringify(tasks));
+    reversedTasks = [...tasks].reverse();
 
     renderTasks();
 }
