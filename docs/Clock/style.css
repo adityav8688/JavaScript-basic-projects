@@ -1,0 +1,17 @@
+nav{
+    display: flex;
+    justify-content: center;
+    h1{
+        color:rgb(155, 155, 155);
+    }
+}
+body{
+    background-color: rgb(45, 45, 45);
+}
+.container{
+    display: flex;
+    justify-content: center;
+    h1{
+        color: rgb(59, 201, 59);
+    }
+}
