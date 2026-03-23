@@ -6,6 +6,7 @@ nav{
     }
 }
 body{
+    font-family: monospace;
     background-color: rgb(45, 45, 45);
 }
 .container{
