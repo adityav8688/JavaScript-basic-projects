@@ -1,0 +1,115 @@
+body {
+    background-color: rgb(58, 58, 58);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+        color: rgb(0, 195, 255);
+    }
+
+    h2 {
+        color: rgb(48, 151, 255);
+        font-size: 1.25rem;
+        text-align: center;
+    }
+
+    input {
+        height: 1.5rem;
+        padding: 0.25rem 0 0.25rem 1rem;
+        margin: 0 1rem 0 0;
+        border-radius: 0.5rem;
+        outline: none;
+
+        &:focus {
+            background-color: rgb(194, 223, 253);
+            border: 2px solid rgb(0, 128, 255);
+        }
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: 1rem;
+}
+
+
+
+.item-adder {
+    display: flex;
+    align-items: center;
+
+    input {
+        height: 1.5rem;
+        padding: 0.25rem 0 0.25rem 1rem;
+        margin: 0 1rem 0 0;
+        width: 20rem;
+        border-radius: 0.5rem;
+        outline: none;
+        color: white;
+        font-weight: 500;
+        font-size: medium;
+        &:focus {
+            background-color: rgb(52, 52, 52);
+            border: 2px solid rgb(87, 87, 87);
+        }
+    }
+
+    button {
+        height: 2.25rem;
+        border: 2px solid rgb(85, 130, 255);
+        background-color: rgb(145, 199, 253);
+
+        span {
+            display: flex;
+            align-items: center;
+            color: white;
+            font-variation-settings: 'wght' 400, 'opsz' 40;
+        }
+    }
+}
+
+.items {
+    #itemsList {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 30rem;
+        overflow: auto;
+        scrollbar-width: 1px;
+    }
+
+    li {
+        padding: 0.25rem 1rem 0.25rem 1rem;
+        margin: 0.5rem;
+        background-color: aqua;
+        list-style: none;
+        width: 15rem;
+        display: flex;
+        justify-content: space-between;
+        border-radius: 0.5rem;
+
+        button {
+            background-color: rgb(255, 161, 161);
+        }
+
+        span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-variation-settings: 'wght' 200;
+        }
+
+        .itemInfo {
+            margin: 0 0.5rem 0 0;
+            white-space: pre;
+            overflow: auto;
+            text-overflow: ellipsis;
+        }
+    }
+}
