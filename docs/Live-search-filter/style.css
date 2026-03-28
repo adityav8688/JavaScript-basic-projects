@@ -24,9 +24,20 @@ body {
         border-radius: 0.5rem;
         outline: none;
 
+        &:hover {
+            background-color: rgb(255, 255, 255);
+            box-shadow: 3px 5px rgb(213, 213, 213);
+        }
+
         &:focus {
-            background-color: rgb(194, 223, 253);
-            border: 2px solid rgb(0, 128, 255);
+            background-color: rgb(52, 52, 52);
+            border: 2px solid rgb(87, 87, 87);
+            color: white;
+
+            &:hover {
+                border: 2px solid rgb(87, 87, 87);
+                box-shadow: none;
+            }
         }
     }
 }
@@ -37,8 +48,6 @@ body {
     align-items: center;
     padding: 1rem;
 }
-
-
 
 .item-adder {
     display: flex;
@@ -54,22 +63,47 @@ body {
         color: white;
         font-weight: 500;
         font-size: medium;
+        overflow-wrap: break-word;
+
         &:focus {
             background-color: rgb(52, 52, 52);
             border: 2px solid rgb(87, 87, 87);
+            &:hover {
+                border: 2px solid rgb(87, 87, 87);
+                box-shadow: none;
+            }
         }
+
+        &:hover {
+            border: none;
+            box-shadow: 3px 5px rgb(213, 213, 213);
+        }
+
     }
 
     button {
         height: 2.25rem;
-        border: 2px solid rgb(85, 130, 255);
-        background-color: rgb(145, 199, 253);
+        border: 2px solid rgb(133, 133, 133);
+        background-color: rgb(224, 224, 224);
 
         span {
             display: flex;
             align-items: center;
-            color: white;
+            color: black;
             font-variation-settings: 'wght' 400, 'opsz' 40;
+        }
+
+        &:hover {
+            background-color: rgb(51, 51, 51);
+
+            span {
+                color: white;
+                font-variation-settings: 'wght' 800, 'opsz' 80;
+            }
+
+            &:active {
+                background-color: black;
+            }
         }
     }
 }
@@ -81,7 +115,15 @@ body {
         align-items: center;
         height: 30rem;
         overflow: auto;
-        scrollbar-width: 1px;
+
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: rgb(79, 73, 73);
+            border-radius: 5px;
+        }
     }
 
     li {
@@ -96,6 +138,17 @@ body {
 
         button {
             background-color: rgb(255, 161, 161);
+            border: 3px solid balck;
+
+            &:hover {
+                background-color: rgb(255, 96, 96);
+                box-shadow: 1px 3px 5px 0;
+                border-color: rgb(8, 6, 6);
+
+                span {
+                    font-variation-settings: 'wght' 300;
+                }
+            }
         }
 
         span {
@@ -103,6 +156,7 @@ body {
             align-items: center;
             justify-content: center;
             font-variation-settings: 'wght' 200;
+
         }
 
         .itemInfo {
@@ -110,6 +164,7 @@ body {
             white-space: pre;
             overflow: auto;
             text-overflow: ellipsis;
+            scrollbar-width: none;
         }
     }
 }
