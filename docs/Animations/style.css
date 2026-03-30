@@ -1,0 +1,49 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: darkslategrey;
+    width: 50%;
+    height: 50%;
+    padding: 1rem;
+    border: 2px dashed black;
+
+}
+
+.card-1 {
+    position: relative;
+    background-color: aquamarine;
+    text-align: center;
+    width: 27%;
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    margin: 0 1rem 0 0;
+    transition: transform 0.5s ease;
+
+    &:hover {
+        transform: scale(1.1) rotate(-2deg);
+    }
+}
+
+.card-2 {
+    position: relative;
+    text-align: center;
+    background-color: cadetblue;
+    width: 27%;
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    color: rgb(50, 50, 50);
+    transition: transform 0.5s ease,
+        background-color 1s;
+
+    &:hover {
+        transform: scale(1.1) rotate(2deg);
+        background-color: rgb(125, 206, 208);
+        color:black;
+    }
+}

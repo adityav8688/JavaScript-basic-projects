@@ -75,7 +75,7 @@ body {
         }
 
         &:hover {
-            border: none;
+            border: 2px solid;
             box-shadow: 3px 5px rgb(213, 213, 213);
         }
 
@@ -95,7 +95,6 @@ body {
 
         &:hover {
             background-color: rgb(51, 51, 51);
-
             span {
                 color: white;
                 font-variation-settings: 'wght' 800, 'opsz' 80;
