@@ -51,11 +51,10 @@ main {
         display: flex;
         justify-content: center;
     }
-
     .container {
         display: grid;
         grid-template-columns: repeat(2, 20rem);
-        gap: 10px;
+        gap: 20px;
     }
 }
 @media (1200px <= width){
