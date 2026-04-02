@@ -2,8 +2,8 @@ body {
     display: flex;
     justify-content: center;
     background: #ffffff;
-    height: auto;
-    width: 98vw;
+    height: 95vh;
+    width: 95vw;
 }
 .container, .chat-box, .chat-input {
   box-sizing: border-box;
